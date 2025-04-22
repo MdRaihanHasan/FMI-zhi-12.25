@@ -1,0 +1,52 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: white; /* Set entire window background to white */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+.login-container {
+    background-color: white; /* Background color of the form */
+    padding: 30px; /* Increased padding */
+    border: 2px dashed #d0d0d0; /* Light ash color dashed border */
+    border-radius: 8px; /* More rounded corners */
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2); /* Enhanced shadow */
+    text-align: left;
+    width: 320px; /* Slightly wider */
+}
+h2 {
+    margin-bottom: 20px;
+    font-size: 24px; /* Larger font size */
+    text-align: center; /* Center the heading */
+}
+.input-group {
+    display: flex; /* Use flexbox for alignment */
+    align-items: center; /* Center items vertically */
+    margin-bottom: 15px; /* Space below inputs */
+}
+label {
+    margin-right: 10px; /* Space between label and input */
+    width: 100px; /* Fixed width for label */
+}
+input[type="text"], input[type="password"] {
+    width: 120px; /* Set width for longer boxes */
+    padding: 8px; /* Adjust padding */
+    border: 1px solid #ccc; /* Border for input */
+    border-radius: 4px; /* Slightly more rounded */
+    font-size: 16px;
+}
+button {
+    background-color: #d0d0d0; /* Light ash color */
+    color: black; /* Text color */
+    padding: 5px 10px; /* Reduced padding for a smaller button */
+    border: 1px solid #999; /* Light black border */
+    border-radius: 4px; /* Slightly more rounded */
+    cursor: pointer;
+    font-size: 12px; /* Smaller font size */
+    margin: 10px auto; /* Center the button */
+    display: block; /* Make it a block element for centering */
+}
+button:hover {
+    background-color: #b0b0b0; /* Darker ash color on hover */

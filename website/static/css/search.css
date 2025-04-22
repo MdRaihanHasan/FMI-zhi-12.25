@@ -1,0 +1,90 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f9f9f9;
+  position: relative; 
+}
+.welcome-message {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  font-size: 14px; /* Consistent welcome font size */
+}
+.container {
+  max-width: 600px;
+  padding: 20px;
+  text-align: center;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+h1 {
+  font-size: 24px; /* Consistent font size */
+}
+.search-input-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+.search-input {
+  width: 400px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 0;
+  margin-left: 5px;
+  font-size: 14px; /* Consistent input font size */
+}
+label {
+  font-weight: bold;
+  font-size: 14px; /* Consistent label font size */
+}
+.folder-select-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+.folder-select {
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 0;
+  font-size: 14px; /* Consistent select font size */
+}
+.folder-select-label {
+  font-weight: bold;
+  font-size: 14px; /* Consistent label font size */
+  margin-left: 5px;
+}
+.search-button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 0;
+  cursor: pointer;
+  font-size: 14px; /* Consistent button font size */
+}
+.search-button:hover {
+  background-color: #45a049;
+}
+.result {
+  text-align: left;
+  margin-top: 20px;
+  font-size: 14px; /* Consistent result font size */
+}
+.return-link {
+  display: block;
+  margin-top: 10px;
+  color: #007BFF;
+  text-decoration: none;
+  font-size: 14px; /* Consistent link font size */
+}
+.return-link:hover {
+  text-decoration: underline;
+}

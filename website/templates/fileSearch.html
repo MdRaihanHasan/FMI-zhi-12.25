@@ -1,0 +1,59 @@
+{% extends "base.html"%}
+{% block title %}Search System{% endblock %}
+
+{% block styleSheet %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/fileSearch.css') }}">
+{% endblock %}
+
+{% block content %}
+<!-- 添加顶部欢迎栏 -->
+<div class="logout">
+    <span>Welcome: {{ user.attribute }}</span>
+</div>
+
+<div class="container">
+    <h1>The File Search System</h1>
+
+    <div class="form-content">
+        <form method="POST">
+            <div class="form-group">
+                <label>Input the keywords:</label>
+                <input type="text" class="form-control" name="keywords"
+                       placeholder="Input the keywords" required>
+            </div>
+
+            <div class="form-group">
+                <label>Please choose the folder that will be searched:</label>
+                <select class="form-control" name="folder-select">
+                    <option value="ROOT">ROOT</option>
+                </select>
+            </div>
+
+            <div class="button-group">
+                <button type="submit" class="btn-primary">Start Search</button>
+            </div>
+        </form>
+
+        <a href="{{ url_for('views.welcome') }}" class="return-link">Click to return</a>
+
+        {% if results %}
+            <div class="search-results">
+                <h2>Search Results:</h2>
+                <ul class="results-list">
+                    {% for result in results %}
+                        <li class="result-item">
+                            <span class="file-name">{{ result.name }}</span>
+                            <a href="{{ url_for('views.viewFile', filename=result.path) }}"
+                               class="btn-primary">Read It</a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        {% endif %}
+
+        {% if search_time > 0 %}
+            <p class="search-time">The cost of loading the page: {{ search_time|round(4) }} seconds</p>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

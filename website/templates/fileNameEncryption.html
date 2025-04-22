@@ -1,0 +1,70 @@
+{% extends "base.html"%}
+{% block title %}File Name Encryption{% endblock %}
+
+{% block styleSheet %}
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/fileEncrypt.css') }}">
+{% endblock %}
+
+{% block content %}
+<!-- 修改欢迎栏 -->
+<div class="logout">
+    <span>Welcome: {{ user.attribute }}</span>
+</div>
+
+<div class="container">
+    <h1>The File Name Encryption System</h1>
+
+    <div class="form-content">
+        <form method="POST" enctype="multipart/form-data">
+            <div class="form-group">
+                <label>Encryption Attribute:</label>
+                <select class="form-control" name="encryption-attribute" required>
+                    <option value="" disabled selected>Select Attribute</option>
+                    <option value="administrator">administrator</option>
+                    <option value="expert">expert</option>
+                    <option value="contributor">contributor</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>The folder that you will upload to:</label>
+                <input type="text" class="form-control" name="folder-name" value="ROOT" required>
+            </div>
+
+            <div class="form-group">
+                <label>Upload a file:</label>
+                <input type="file" class="form-control" name="file-upload" required>
+            </div>
+
+            <div class="form-group">
+                <label>Input the keyword about the file you will upload:</label>
+                <input type="text" class="form-control" name="file-name"
+                       placeholder="Keywords separated by spaces" required>
+            </div>
+
+            <div class="form-group">
+                <label>Click the "KeyGen" box to generate the encryption key:</label>
+                <div class="keygen-box">KeyGen</div>
+            </div>
+
+            <div class="button-group">
+                <button type="submit" class="btn-primary">Encrypt and upload file</button>
+            </div>
+        </form>
+
+        <a href="{{ url_for('views.welcome') }}" class="return-link">Click to return</a>
+    </div>
+</div>
+
+{% with messages = get_flashed_messages(with_categories=True) %}
+    {% if messages %}
+        <script>
+            window.onload = function() {
+                {% for category, message in messages %}
+                    alert("{{ message }}");
+                {% endfor %}
+            };
+        </script>
+    {% endif %}
+{% endwith %}
+{% endblock %}

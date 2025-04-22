@@ -1,0 +1,36 @@
+{% extends "base.html"%}
+{% block title %}Create Folder{% endblock %}
+
+{% block styleSheet %}
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/createFolder.css') }}">
+{% endblock %}
+
+{% block content %}
+<!-- 修改欢迎栏 -->
+<div class="logout">
+    <span>Welcome: {{ user.attribute }}</span>
+</div>
+
+<div class="container">
+    <h1>Create a new folder</h1>
+
+    <form method="POST" class="form-content">
+        <div class="form-group">
+            <label for="encryption-attribute">Input the file encryption attribute:</label>
+            <input type="text" id="encryption-attribute" name="encryption-attribute"
+                   placeholder="(contributor, expert, administrator)" required>
+        </div>
+
+        <div class="form-group">
+            <label for="folder-name">Input the new folder name:</label>
+            <input type="text" id="folder-name" name="folder-name" required>
+        </div>
+
+        <div class="button-group">
+            <button type="submit" class="btn-primary">Ok, create it</button>
+        </div>
+    </form>
+
+    <a href="{{ url_for('views.welcome') }}" class="return-link">Click to return</a>
+</div>
+{% endblock %}

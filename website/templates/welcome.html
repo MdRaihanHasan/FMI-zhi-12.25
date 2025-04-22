@@ -1,0 +1,94 @@
+{% extends "base.html"%}
+{% block title %}Root{% endblock %}
+
+{% block styleSheet %}
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/welcome.css') }}">
+{% endblock %}
+
+{% block javaScript %}
+    <script src="js/config.js"></script>
+    <script>
+        function fuzzySearch() {
+            const input = document.getElementById('search-bar').value.toLowerCase();
+            const fileItems = document.querySelectorAll('.file-item');
+            const fileCountElement = document.querySelector('.file-count');
+            const noResultsElement = document.getElementById('no-results');
+            let visibleCount = 0;
+
+            fileItems.forEach(item => {
+                const fileName = item.querySelector('.file-name').textContent.toLowerCase();
+                if (fileName.includes(input)) {
+                    item.style.display = '';
+                    visibleCount++;
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+
+            // Update the file count
+            fileCountElement.textContent = `${visibleCount} items`;
+
+            // Show or hide the "No results found" message
+            if (visibleCount === 0) {
+                noResultsElement.style.display = 'block';
+            } else {
+                noResultsElement.style.display = 'none';
+            }
+        }
+    </script>
+{% endblock %}
+
+{% block content %}
+<div class="logout">
+    Welcome: {{ user.attribute }}
+    <a href="/logout" onclick="logout()">Logout</a>
+</div>
+
+<div class="button-container">
+    <button><a href="/fileNameEncryption">Metadata Uploads</a></button>
+    <button><a href="/createFolder">Create a new storage server</a></button>
+    <button><a href="/fileSearch">Search Metadata</a></button>
+</div>
+
+<div class="local-storage">
+    <div class="search-fuzzy">
+    <h2>
+        Local Storage:
+        {% if current_path %}
+            <a href="{{ url_for('views.welcome') }}" class="open-button">← Back</a>
+            <span class="current-path">Current Path: {{ current_path }}</span>
+        {% endif %}
+    </h2>
+
+    <!-- Search Bar -->
+    <div class="search-container">
+        <input type="text" id="search-bar" placeholder="Search files..." onkeyup="fuzzySearch()">
+    </div>
+</div>
+    <div class="file-count">{{ file_count }} items</div>
+
+    <!-- No Results Found Message -->
+    <div id="no-results" style="display: none; text-align: center; color: red; margin-top: 10px;">
+        No results found.
+    </div>
+
+    <div class="file-list">
+        {% for file in files %}
+            <div class="file-item">
+                {% if file.is_dir %}
+                    <span class="icon-folder">📁</span>
+                    <span class="file-name">{{ file.name }}</span>
+                    <a href="{{ url_for('views.open_folder', folder_name=file.path) }}"
+                       class="open-button">Open</a>
+                {% else %}
+                    <span class="icon-file">📄</span>
+                    <span class="file-name">{{ file.name }}</span>
+                    <a href="{{ url_for('views.viewFile', filename=file.path) }}"
+                       class="open-button">View/Download</a>
+                {% endif %}
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}

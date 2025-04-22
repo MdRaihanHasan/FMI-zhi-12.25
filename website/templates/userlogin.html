@@ -1,0 +1,24 @@
+{% extends "base.html"%} {% block title %}User Login{% endblock %}
+
+{% block styleSheet %}
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/userLogin.css') }}">
+{% endblock %}
+
+{% block javaScript %}<script src="js/config.js"></script>{% endblock %}
+
+{% block content %}
+<div class="login-container">
+    <h2>User Login Page</h2>
+    <form id="loginForm" onsubmit="myFunction(event)" method="POST">
+        <div class="input-group">
+            <label for="username">UserName:</label>
+            <input type="text" id="username" name="username" required placeholder="Enter UserName">
+        </div>
+        <div class="input-group">
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required placeholder="Enter Password">
+        </div>
+        <button type="submit">Login</button>
+    </form>
+</div>
+{% endblock %}

@@ -1,0 +1,112 @@
+/* 基础样式 */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+}
+
+/* 顶部欢迎栏样式 */
+.logout {
+    background-color: #4a90e2;
+    color: white;
+    padding: 12px 20px;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 10px;
+    z-index: 1000;
+}
+
+/* 容器样式 */
+.container {
+    width: 80%;
+    min-width: 800px;
+    max-width: 1200px;
+    margin: 80px auto 30px;  /* 增加顶部边距 */
+    padding: 40px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+/* 标题样式 */
+h1 {
+    color: #333;
+    margin-bottom: 40px;
+    font-size: 28px;
+    text-align: center;
+}
+
+/* 表单内容样式 */
+.form-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* 表单组样式 */
+.form-group {
+    margin-bottom: 25px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: #333;
+    font-size: 15px;
+}
+
+/* 输入框样式 */
+.form-group input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+
+.form-group input[type="text"]:focus {
+    outline: none;
+    border-color: #4a90e2;
+    box-shadow: 0 0 0 2px rgba(74, 144, 226, 0.1);
+}
+
+/* 按钮组样式 */
+.button-group {
+    text-align: center;
+    margin: 30px 0;
+}
+
+/* 按钮样式 */
+.btn-primary {
+    background-color: #4a90e2;
+    color: white;
+    padding: 10px 30px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #357abd;
+}
+
+/* 返回链接样式 */
+.return-link {
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+    color: #4a90e2;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.return-link:hover {
+    text-decoration: underline;
+}

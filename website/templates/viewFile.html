@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %}View File - {{ filename }}{% endblock %}
+
+{% block styleSheet %}
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/viewFile.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="file-viewer">
+    <div class="file-header">
+        <h2>{{ filename }}</h2>
+        {% if return_path %}
+            <a href="{{ url_for('views.open_folder', path=return_path) }}"
+               class="back-button">Back to {{ return_path }}</a>
+        {% else %}
+            <a href="{{ url_for('views.welcome') }}"
+               class="back-button">Back to Root</a>
+        {% endif %}
+    </div>
+
+    <div class="file-content">
+        <pre>{{ content }}</pre>
+    </div>
+</div>
+{% endblock %}

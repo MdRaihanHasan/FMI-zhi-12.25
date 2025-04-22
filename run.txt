@@ -1,0 +1,9 @@
+pip install --upgrade pip
+pip install flask_sqlalchemy flask_login charm-crypto --no-cache-dir
+pip install git+https://github.com/JHUISI/charm.git
+pip install gmpy2 future
+pip install --force-reinstall flask flask_sqlalchemy flask_login
+python -m venv venv
+venv\Scripts\activate
+pip install flask flask_sqlalchemy flask_login
+python main.py
